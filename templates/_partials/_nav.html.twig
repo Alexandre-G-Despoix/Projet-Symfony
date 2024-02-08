@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{ path('main') }}"><img src="https://i.ibb.co/tp1fKmy/Votre-texte-de-paragraphe-removebg-preview.png" width="150px" srcset=""></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="{{ path('main') }}">Accueil</a>
+				</li>
+				{# <li class="nav-item">
+					<a class="nav-link" href="{{ path('catall') }}">Liste des produits</a>
+				</li> #}
+				
+				{# <li class="nav-item">
+					<a class="nav-link disabled">Disabled</a>
+				</li> #}
+			</ul>
+			<ul class="navbar-nav mb-auto mb-2 mb-lg-0">
+				{% if app.user %}
+					{% if is_granted('ROLE_PRODUCT_ADMIN') %}
+						<li class="nav-item" style="margin-right: 10px;">
+							<a class="btn btn-outline-warning" href="{{ path('admin_index') }}">Administration</a>
+						</li>
+					{% endif %}
+					<li class="nav-item" style="margin-right: 10px;">
+						<a class="btn btn-outline-success" href="{{ path('cart_index')}}">Panier</a>
+					</li>
+					
+					<li class="nav-item" style="margin-right: 10px;">
+						<a class="btn btn-outline-info" href="{{ path('profile_index') }}">Mon Compte</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="btn btn-outline-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+					</li>
+				{% else %}
+					<li class="nav-item" style="margin-right: 10px;">
+						<a class="btn btn-outline-success" href="{{ path('app_register') }}">M'Inscrire</a>
+					</li>
+					<li class="nav-item" style="margin-right: 10px;">
+						<a class="btn btn-outline-info" href="{{ path('app_login') }}">Me Connecter</a>
+					</li>
+				{% endif %}
+			</ul>
+			
+		</div>
+	</div>
+</nav>

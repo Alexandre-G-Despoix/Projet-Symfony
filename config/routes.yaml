@@ -1,0 +1,11 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+# product_delete:
+#     path: /products/{id}/delete
+#     controller: App\Controller\ProductsController::delete
